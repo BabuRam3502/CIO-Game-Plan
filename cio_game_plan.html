@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your 2-Week CIO Game Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .task-checkbox:checked + .task-label {
+            text-decoration: line-through;
+            color: #9CA3AF;
+        }
+    </style>
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: A task-oriented, interactive checklist with progress visualization. This structure was chosen to provide a clear and actionable path for the user, allowing them to track their progress and stay motivated. The application is divided into weekly sections, with daily action items presented as a checklist. A progress chart provides a visual representation of the user's achievements, and a notes section allows for reflection and learning. This structure is more engaging and user-friendly than a static document, making the game plan more effective. -->
+    <!-- Visualization & Content Choices: The core of the application is an interactive checklist, which allows the user to mark tasks as complete. This provides a sense of accomplishment and helps the user stay organized. A donut chart created with Chart.js visualizes the user's progress, providing a "wow" factor and a clear overview of their achievements. A dedicated notes section encourages the user to reflect on their readings and experiences, which is a key part of the game plan. All graphics are created using Chart.js (Canvas), and no SVG or Mermaid JS is used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-900">Your 2-Week CIO Game Plan</h1>
+            <p class="text-lg text-gray-600 mt-2">An interactive guide to accelerate your journey to the C-suite.</p>
+        </header>
+
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-4">Weekly Tasks</h2>
+
+                <div id="week1" class="mb-8">
+                    <h3 class="text-xl font-semibold mb-2">Week 1: Business and Financial Acumen</h3>
+                    <div class="space-y-4">
+                        <div class="task-item flex items-start">
+                            <input type="checkbox" id="task1" class="task-checkbox mt-1 h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                            <label for="task1" class="task-label ml-3 block text-gray-700">
+                                <span class="font-semibold">Daily Business Reading (30 mins):</span> Read the business section of a major financial publication.
+                            </label>
+                        </div>
+                        <div class="task-item flex items-start">
+                            <input type="checkbox" id="task2" class="task-checkbox mt-1 h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                            <label for="task2" class="task-label ml-3 block text-gray-700">
+                                <span class="font-semibold">Strategic Budget Practice (30 mins):</span> Use your budget for scenario planning, justification exercises, or ROI identification.
+                            </label>
+                        </div>
+                        <div class="task-item flex items-start">
+                            <input type="checkbox" id="task3" class="task-checkbox mt-1 h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                            <label for="task3" class="task-label ml-3 block text-gray-700">
+                                <span class="font-semibold">Executive Summary Writing (60 mins):</span> Begin writing an executive-level summary of your micro-fulfillment center project.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="week2">
+                    <h3 class="text-xl font-semibold mb-2">Week 2: Strategic Leadership and Communication</h3>
+                    <div class="space-y-4">
+                        <div class="task-item flex items-start">
+                            <input type="checkbox" id="task4" class="task-checkbox mt-1 h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                            <label for="task4" class="task-label ml-3 block text-gray-700">
+                                <span class="font-semibold">Trend Tracking (30 mins):</span> Continue your business reading and start tracking key trends relevant to a CIO's role.
+                            </label>
+                        </div>
+                        <div class="task-item flex items-start">
+                            <input type="checkbox" id="task5" class="task-checkbox mt-1 h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                            <label for="task5" class="task-label ml-3 block text-gray-700">
+                                <span class="font-semibold">Tough Conversation Practice (30 mins):</span> Rehearse for an upcoming tough conversation, focusing on being direct and clear.
+                            </label>
+                        </div>
+                        <div class="task-item flex items-start">
+                            <input type="checkbox" id="task6" class="task-checkbox mt-1 h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                            <label for="task6" class="task-label ml-3 block text-gray-700">
+                                <span class="font-semibold">Refine Executive Summary (60 mins):</span> Polish your executive summary and share it with your VP mentor for feedback.
+                            </label>
+                        </div>
+                        <div class="task-item flex items-start">
+                            <input type="checkbox" id="task7" class="task-checkbox mt-1 h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                            <label for="task7" class="task-label ml-3 block text-gray-700">
+                                <span class="font-semibold">Radical Candor Practice (15-20 mins):</span> Apply concepts from "Radical Candor" in your daily interactions.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold mb-4">Progress</h2>
+                    <div class="chart-container" style="position: relative; height:40vh; width:80vw; max-width: 300px; margin: auto;">
+                        <canvas id="progressChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold mb-4">Notes & Reflections</h2>
+                    <textarea id="notes" class="w-full h-48 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="Jot down your insights from readings, budget analysis, and reflections on 'Radical Candor'..."></textarea>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('.task-checkbox');
+            const totalTasks = checkboxes.length;
+            let completedTasks = 0;
+
+            const ctx = document.getElementById('progressChart').getContext('2d');
+            const progressChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Completed', 'Remaining'],
+                    datasets: [{
+                        data: [0, totalTasks],
+                        backgroundColor: ['#4F46E5', '#E5E7EB'],
+                        hoverBackgroundColor: ['#4338CA', '#D1D5DB'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            enabled: false
+                        }
+                    }
+                }
+            });
+
+            function updateChart() {
+                completedTasks = document.querySelectorAll('.task-checkbox:checked').length;
+                progressChart.data.datasets[0].data = [completedTasks, totalTasks - completedTasks];
+                progressChart.update();
+            }
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateChart);
+            });
+
+            updateChart();
+        });
+    </script>
+
+</body>
+</html>
